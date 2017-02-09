@@ -1,0 +1,40 @@
+        ArrayList<Point> plot = new ArrayList<Point>();
+                                                    //Empty after instantiation
+        Point p = new Point( 12, 16 );
+        plot.add( p );
+                                                    //Contains 1 value @ index 0
+        plot.add( new Point( 0, 0 ) );
+        plot.add( new Point( 4, 8 ) );
+        plot.add( 2, new Point( 5, 10 ) );          //Pushes existing index 2 UP to index 3.
+
+        p = plot.get( 0 );
+        p = plot.remove( 1 );
+
+        plot.add( new Point( -5, 5 ) );
+
+
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        nums.add( 12 );
+        nums.add( 32 );
+        nums.add( 15 );
+        nums.add( 2, 11 );      //Moves everything up from index 2 and inserts itself there.
+        nums.add( 6 );
+
+        int s = nums.size() ;       //Returns 5
+
+        int sum = 0;
+        Iterator<Integer> it = nums.iterator();     //Yes you can use an iterator, but since it's an ArrayList of ints, you can use foreach
+        while(it.hasNext()) {
+            int n = it.next();
+            if ( n % 2 == 1 )
+                sum = sum + n;
+        }
+        nums.remove( 0 );
+
+
+        HashMap<String, Point> places = new HashMap<String, Point>();           //No concept of order. Only TreeMap has vague order.
+        places.put( "origin", new Point() );                                    //Hashmap is really just a collection of K-V pairs.
+        places.put( "east", new Point( 100, 0 ) );
+        places.put( "south", new Point( 0, -100 ) );
+        places.put( "northwest", new Point( -100, 100 ) );
+        places.put( "east", new Point( 200, 0 ) );            //Overwrites previously existing "east" key and value.
